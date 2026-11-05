@@ -1,0 +1,17 @@
+# 遗落圣坛掉落 v1；每项独立概率，数量在概率前。
+# dungeonce由Dungeon桥接CraftEngine真实物品；非玩家击杀不产出。
+# 玩家击杀必掉 1-3 个铜币；精英额外 10% 概率掉 1 个银币。
+# 初级升级单元：普通7%，精英30%掉1-2个；本地图不产出机器和高阶材料。
+AltarCommonDrops:
+  Drops:
+    - dungeonce{id=genlite:basic_upgrade_unit} 1 0.07
+    - dungeonce{id=genlite:mechanical_parts} 1 0.04
+    - dungeonce{id=genlite:copper_coil} 1 0.04
+    - 'dungeonce{id=currency:copper_coin} 1to3 1.0'
+AltarEliteDrops:
+  Drops:
+    - dungeonce{id=genlite:basic_upgrade_unit} 1to2 0.30
+    - dungeonce{id=genlite:gear} 1 0.08
+    - dungeonce{id=genlite:energy_cell} 1 0.04
+    - 'dungeonce{id=currency:copper_coin} 1to3 1.0'
+    - 'dungeonce{id=currency:silver_coin} 1 0.10'

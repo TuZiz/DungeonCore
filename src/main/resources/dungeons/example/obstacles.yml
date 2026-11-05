@@ -1,0 +1,4 @@
+schema-version: 1
+# 右键该点位附近方块时受到的伤害，单位为生命值，0 至 100。
+damage:
+  altar: 2.0

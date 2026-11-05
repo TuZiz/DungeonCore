@@ -1,0 +1,134 @@
+# 遗落圣坛怪物配置 v1；生命/伤害为基础值，掉落引用独立掉落表。
+AltarMossWalker:
+  Type: ZOMBIE
+  Display: '<#A8D6AA>苔痕行尸'
+  Health: 28
+  Damage: 3
+  Options:
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventTransformation: true
+    Despawn: true
+    AlwaysShowName: false
+    MovementSpeed: 0.25
+    FollowRange: 20
+    Silent: false
+  Drops:
+    - AltarCommonDrops
+AltarTideRemnant:
+  Type: DROWNED
+  Display: '<#A8D6AA>潮蚀遗民'
+  Health: 32
+  Damage: 3
+  Options:
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventTransformation: true
+    Despawn: true
+    AlwaysShowName: false
+    MovementSpeed: 0.25
+    FollowRange: 20
+    Silent: false
+  Drops:
+    - AltarCommonDrops
+  Skills:
+    - skill{s=AltarChill} @target ~onAttack 0.25
+AltarBoneArcher:
+  Type: SKELETON
+  Equipment:
+    - BOW HAND
+  Display: '<#A8D6AA>遗坛弓卫'
+  Health: 24
+  Damage: 3
+  Options:
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventTransformation: true
+    Despawn: true
+    AlwaysShowName: false
+    MovementSpeed: 0.25
+    FollowRange: 20
+    Silent: false
+  Drops:
+    - AltarCommonDrops
+AltarVineSpider:
+  Type: SPIDER
+  Display: '<#A8D6AA>藤影猎蛛'
+  Health: 22
+  Damage: 3
+  Options:
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventTransformation: true
+    Despawn: true
+    AlwaysShowName: false
+    MovementSpeed: 0.25
+    FollowRange: 20
+    Silent: false
+  Drops:
+    - AltarCommonDrops
+  Skills:
+    - skill{s=AltarChill} @target ~onAttack 0.25
+AltarStoneGuard:
+  Type: HUSK
+  Display: '<#A8D6AA>石誓守卫'
+  Health: 70
+  Damage: 5
+  Options:
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventTransformation: true
+    Despawn: true
+    AlwaysShowName: false
+    MovementSpeed: 0.23
+    FollowRange: 20
+    Silent: false
+  Drops:
+    - AltarEliteDrops
+  Skills:
+    - skill{s=AltarSlam} @target ~onAttack 0.25
+AltarRuneKeeper:
+  Type: WITHER_SKELETON
+  Display: '<#A8D6AA>符文守祭者'
+  Health: 90
+  Damage: 6
+  Options:
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventTransformation: true
+    Despawn: true
+    AlwaysShowName: false
+    MovementSpeed: 0.23
+    FollowRange: 20
+    Silent: false
+  Drops:
+    - AltarEliteDrops
+  Skills:
+    - skill{s=AltarSlam} @target ~onAttack 0.25
+AltarKillerRabbit:
+  Type: RABBIT
+  Display: '<#FF7474>杀手兔'
+  Health: 60
+  Damage: 6
+  Options:
+    IsKillerBunny: true
+    PreventOtherDrops: true
+    PreventItemPickup: true
+    Despawn: true
+    AlwaysShowName: false
+    MovementSpeed: 0.30
+    FollowRange: 24
+  Drops:
+    - 'AltarEliteDrops'

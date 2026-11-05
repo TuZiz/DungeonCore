@@ -1,0 +1,24 @@
+schema-version: 1
+# PERMANENT：常驻；TEMPORARY：复制离线模板；STORY：单人检查点续玩。
+mode: 'PERMANENT'
+progress-scope: 'PARTY'
+world: 'world'
+# 临时模式从 plugins/Dungeon/templates/<模板名> 复制地图。
+template: 'example'
+min-players: 1
+max-players: 4
+# 秒；超时结束并返回。断线暂停队伍，重连宽限到期结束。
+timeout-seconds: 1800
+reconnect-seconds: 120
+death-fails: true
+# 死亡保留背包和经验；不影响 death-fails 的副本失败规则。
+keep-inventory: true
+difficulties:
+  normal:
+    goal-multiplier: 1
+  hard:
+    extends: 'normal'
+    goal-multiplier: 2
+# 同一 campaign 下通关第 N 章解锁第 N+1 章。
+campaign: 'example'
+chapter: 1

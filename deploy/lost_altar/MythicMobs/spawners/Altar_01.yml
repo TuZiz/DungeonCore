@@ -1,0 +1,24 @@
+# 遗落圣坛刷怪点 v1；单位秒。修改已加载刷怪点须先停服。
+Altar_01:
+  MobName: AltarMossWalker
+  World: lost_altar
+  SpawnerGroup: lost_altar
+  X: 0.5
+  Y: 43
+  Z: 24.5
+  Radius: 0
+  RadiusY: 0
+  UseTimer: true
+  MaxMobs: 2
+  MobLevel: 1
+  MobsPerSpawn: 1
+  Cooldown: 25
+  Warmup: 10
+  CheckForPlayers: true
+  ActivationRange: 28
+  LeashRange: 18
+  HealOnLeash: true
+  ResetThreatOnLeash: true
+  ShowFlames: false
+  Breakable: false
+  Chance: 1.0

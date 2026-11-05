@@ -1,0 +1,13 @@
+schema-version: 1
+# 目标：KILL/BOSS 引用 mobs ID；INTERACT/EXPLORE 引用点位；COLLECT 引用物品材质。
+stages:
+  - id: 'guards'
+    objective: 'KILL'
+    target: 'guard'
+    count: 3
+    mobs:
+      - 'guard'
+  - id: 'altar'
+    objective: 'INTERACT'
+    target: 'altar'
+    count: 1

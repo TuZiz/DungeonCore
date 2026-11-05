@@ -1,0 +1,2 @@
+schema-version: 1
+# 全局基础设施配置；副本玩法配置位于 dungeons/<id>/。

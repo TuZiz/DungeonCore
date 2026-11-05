@@ -1,0 +1,8 @@
+schema-version: 1
+mobs:
+  guard:
+    # 引用 MythicMobs 的内部 ID；需先安装 integrations/mythicmobs/DungeonExample.yml。
+    type: 'DungeonExampleGuard'
+    mythic: true
+    location: 'wave'
+    count: 3

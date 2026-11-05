@@ -1,0 +1,5 @@
+schema-version: 1
+arrived: '<#A6E3E1>✦ 已到达星穹副本大厅。'
+unavailable: '<#F38BA8>大厅暂不可用，请联系管理员查看地图版本与世界加载日志。'
+in-dungeon: '<#F9E2AF>请先使用 /dungeon exit 退出当前副本，再前往大厅。'
+teleport-failed: '<#F38BA8>大厅传送失败，请稍后重试。'

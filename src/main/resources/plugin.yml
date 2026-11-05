@@ -1,0 +1,22 @@
+name: Dungeon
+version: '0.1.0'
+main: dev.dungeon.DungeonPlugin
+api-version: '1.21.11'
+folia-supported: true
+softdepend:
+  - Xerr
+  - CraftEngine
+  - Worlds
+loadbefore:
+  - MythicMobs
+commands:
+  dungeon:
+    description: '前往大厅、组队挑战与查看副本进度；使用 /dungeon help 查看帮助'
+    usage: '/dungeon help [player|party|admin]'
+permissions:
+  dungeon.use:
+    description: '全部普通玩家副本功能'
+    default: true
+  dungeon.admin:
+    description: '副本配置重载与诊断'
+    default: op

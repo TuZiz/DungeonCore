@@ -1,0 +1,54 @@
+# Dungeon 负责刷新位置、数量和回收；怪物定义、技能、掉落仍使用 MythicMobs。
+schema-version: 1
+enabled: true
+# 每个玩家每轮最多尝试 2 个位置，每 100 tick（5 秒）一轮。
+interval-ticks: 100
+attempts: 2
+radius:
+  min: 16
+  max: 32
+# 搜索距离上限；同时受 height 的玩家相对高度限制。
+vertical-search: 12
+# 怪物脚部最多高于玩家 2 格、低于玩家 6 格；找不到安全落点就跳过。
+height:
+  above: 2
+  below: 6
+player-separation: 8
+spawn-safe-radius: 12
+limits:
+  per-player: 6
+  nearby: 10
+  elites-per-player: 1
+  elites-nearby: 2
+despawn:
+  radius: 80
+  after-seconds: 10
+mobs:
+  - id: 'AltarMossWalker'
+    name: '苔痕行尸'
+    weight: 20
+    elite: false
+  - id: 'AltarTideRemnant'
+    name: '潮蚀遗民'
+    weight: 20
+    elite: false
+  - id: 'AltarBoneArcher'
+    name: '遗坛弓卫'
+    weight: 20
+    elite: false
+  - id: 'AltarVineSpider'
+    name: '藤影猎蛛'
+    weight: 20
+    elite: false
+  - id: 'AltarStoneGuard'
+    name: '石誓守卫'
+    weight: 5
+    elite: true
+  - id: 'AltarRuneKeeper'
+    name: '符文守祭者'
+    weight: 5
+    elite: true
+  - id: 'AltarKillerRabbit'
+    name: '杀手兔'
+    weight: 5
+    elite: true

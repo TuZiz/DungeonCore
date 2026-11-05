@@ -1,0 +1,13 @@
+# 常驻刷怪地图；地图归档由管理员放入 maps/<id>/，不会写入玩家进度。
+schema-version: 1
+enabled: false
+id: 'lost_altar'
+world: 'lost_altar'
+# 死亡保留背包和经验。
+keep-inventory: true
+spawn:
+  x: 181.771
+  y: 8.0
+  z: 11.174
+  yaw: -173.7
+  pitch: -7.2

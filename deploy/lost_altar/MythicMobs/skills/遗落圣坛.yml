@@ -1,0 +1,13 @@
+# 遗落圣坛技能 v1；无地形破坏、无召唤、无模型。
+AltarChill:
+  Cooldown: 8
+  Skills:
+    - effect:particles{p=spore_blossom_air;amount=8;hS=0.3;vS=0.5} @self
+    - potion{type=SLOW;duration=40;level=0} @target
+AltarSlam:
+  Cooldown: 12
+  Skills:
+    - effect:particles{p=crit;amount=20;hS=1.2;vS=0.1} @self
+    - sound{s=block.stone.break;v=0.6;p=0.7} @self
+    - delay 16
+    - damage{amount=3} @PlayersInRadius{r=2.5}

@@ -1,0 +1,5 @@
+schema-version: 1
+enabled: true
+# Xerr/core/layout/dungeon_elite.yml 中的布局 ID；坐标由 Xerr 布局控制。
+layout: 'dungeon_elite'
+range: 128

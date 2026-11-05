@@ -1,0 +1,12 @@
+schema-version: 1
+text: '<#FFCC66>精英 · <name>  <#FFFFFF><direction>  <#80DDD5><distance> 米'
+# 从正前方开始顺时针，每 45 度一个方向。
+directions:
+  - '正前方'
+  - '右前方'
+  - '右侧'
+  - '右后方'
+  - '身后'
+  - '左后方'
+  - '左侧'
+  - '左前方'

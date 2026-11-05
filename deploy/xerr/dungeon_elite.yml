@@ -1,0 +1,397 @@
+# 顶部中央精英指引；复用现有 pixel 字体，不改动 Quest HUD。
+defaults:
+  font: 'pixel'
+dungeon_elite:
+  elite:
+    anchor:
+      x: 50
+      y: 0
+    x: 0
+    y: -24
+    align: 'center'
+    layer: 30
+    value: '{{ get elite }}'
+  compass_0:
+    condition: 'get compass_0'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_16'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_1:
+    condition: 'get compass_1'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_17'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_2:
+    condition: 'get compass_2'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_18'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_3:
+    condition: 'get compass_3'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_19'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_4:
+    condition: 'get compass_4'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_20'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_5:
+    condition: 'get compass_5'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_21'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_6:
+    condition: 'get compass_6'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_22'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_7:
+    condition: 'get compass_7'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_23'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_8:
+    condition: 'get compass_8'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_24'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_9:
+    condition: 'get compass_9'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_25'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_10:
+    condition: 'get compass_10'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_26'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_11:
+    condition: 'get compass_11'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_27'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_12:
+    condition: 'get compass_12'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_28'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_13:
+    condition: 'get compass_13'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_29'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_14:
+    condition: 'get compass_14'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_30'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_15:
+    condition: 'get compass_15'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_31'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_16:
+    condition: 'get compass_16'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_00'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_17:
+    condition: 'get compass_17'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_01'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_18:
+    condition: 'get compass_18'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_02'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_19:
+    condition: 'get compass_19'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_03'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_20:
+    condition: 'get compass_20'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_04'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_21:
+    condition: 'get compass_21'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_05'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_22:
+    condition: 'get compass_22'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_06'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_23:
+    condition: 'get compass_23'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_07'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_24:
+    condition: 'get compass_24'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_08'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_25:
+    condition: 'get compass_25'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_09'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_26:
+    condition: 'get compass_26'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_10'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_27:
+    condition: 'get compass_27'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_11'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_28:
+    condition: 'get compass_28'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_12'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_29:
+    condition: 'get compass_29'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_13'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_30:
+    condition: 'get compass_30'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_14'
+      namespace: 'dungeon'
+      basename: 'navigation'
+  compass_31:
+    condition: 'get compass_31'
+    anchor:
+      x: 50
+      y: 0
+    x: -10
+    y: 0
+    layer: 30
+    image:
+      id: 'compass_15'
+      namespace: 'dungeon'
+      basename: 'navigation'

@@ -1,0 +1,5 @@
+schema-version: 1
+arrived: '<#8FD6B1>已进入石址，可自由刷怪。<#D8E9DC>使用 /dungeon exit 返回副本大厅。'
+unavailable: '<#F38BA8>石址尚未就绪，请稍后重试。'
+in-dungeon: '<#F9E2AF>请先退出当前副本或等待传送完成。'
+teleport-failed: '<#F38BA8>传送失败，请稍后重试。'

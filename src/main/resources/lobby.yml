@@ -1,0 +1,15 @@
+schema-version: 1
+# 星穹副本大厅为永久地图，至少需要 Minecraft 26.2（DataVersion 4903）。
+# 大厅仅用于集结与传送，禁止敌对怪物生成，不能作为战斗副本世界。
+enabled: true
+world: 'Starfall_Dungeon_Hub'
+# 启动时导入内置原始地图，绝不覆盖已有世界；复制和校验在 IO 线程执行。
+import-bundled-map: true
+# 仅在平台有安全加载能力时自动加载；Folia 未知能力下需先由外部加载。
+auto-load: true
+spawn:
+  x: 0.5
+  y: 101.0
+  z: 20.5
+  yaw: 180.0
+  pitch: 0.0

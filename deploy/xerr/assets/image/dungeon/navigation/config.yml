@@ -1,0 +1,101 @@
+# 顶部精英提示上方的原版指南针图标；高度单位为 GUI 像素。
+img:
+  compass:
+    path: 'compass'
+    height: 20
+  compass_00:
+    path: 'compass_00'
+    height: 20
+  compass_01:
+    path: 'compass_01'
+    height: 20
+  compass_02:
+    path: 'compass_02'
+    height: 20
+  compass_03:
+    path: 'compass_03'
+    height: 20
+  compass_04:
+    path: 'compass_04'
+    height: 20
+  compass_05:
+    path: 'compass_05'
+    height: 20
+  compass_06:
+    path: 'compass_06'
+    height: 20
+  compass_07:
+    path: 'compass_07'
+    height: 20
+  compass_08:
+    path: 'compass_08'
+    height: 20
+  compass_09:
+    path: 'compass_09'
+    height: 20
+  compass_10:
+    path: 'compass_10'
+    height: 20
+  compass_11:
+    path: 'compass_11'
+    height: 20
+  compass_12:
+    path: 'compass_12'
+    height: 20
+  compass_13:
+    path: 'compass_13'
+    height: 20
+  compass_14:
+    path: 'compass_14'
+    height: 20
+  compass_15:
+    path: 'compass_15'
+    height: 20
+  compass_16:
+    path: 'compass_16'
+    height: 20
+  compass_17:
+    path: 'compass_17'
+    height: 20
+  compass_18:
+    path: 'compass_18'
+    height: 20
+  compass_19:
+    path: 'compass_19'
+    height: 20
+  compass_20:
+    path: 'compass_20'
+    height: 20
+  compass_21:
+    path: 'compass_21'
+    height: 20
+  compass_22:
+    path: 'compass_22'
+    height: 20
+  compass_23:
+    path: 'compass_23'
+    height: 20
+  compass_24:
+    path: 'compass_24'
+    height: 20
+  compass_25:
+    path: 'compass_25'
+    height: 20
+  compass_26:
+    path: 'compass_26'
+    height: 20
+  compass_27:
+    path: 'compass_27'
+    height: 20
+  compass_28:
+    path: 'compass_28'
+    height: 20
+  compass_29:
+    path: 'compass_29'
+    height: 20
+  compass_30:
+    path: 'compass_30'
+    height: 20
+  compass_31:
+    path: 'compass_31'
+    height: 20

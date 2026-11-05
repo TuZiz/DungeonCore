@@ -1,0 +1,8 @@
+schema-version: 1
+# 每人每次通关一份；背包不足或中断的 RESERVED 记录需管理员审计，不自动重发。
+completion:
+  - material: 'DIAMOND'
+    amount: 1
+first-completion:
+  - material: 'EMERALD'
+    amount: 1

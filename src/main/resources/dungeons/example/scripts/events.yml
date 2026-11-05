@@ -1,0 +1,8 @@
+schema-version: 1
+# 声明式事件、条件、动作。每规则最多 64 动作，累计延迟最多 600 tick，实例关闭自动失效。
+rules:
+  - trigger: 'started'
+    actions:
+      - type: 'message'
+        argument: 'script-welcome'
+        delay-ticks: 20
