@@ -1,0 +1,68 @@
+schema-version: 1
+# 依赖 MythicMobs + BetterModel + CraftEngine；缺少任一项只暂停首领。
+enabled: true
+mythic-mob: '石址守望者'
+model: 'stone_site_warden'
+effect-model: 'stone_site_wave'
+# 默认低于服务端常见的 1024 生命值上限，贡献门槛为 50 点实际伤害。
+health: 1000
+model-scale: 1.05
+# 普通受击保留短暂位移；施法、出生和回位期间不受击退。
+impact:
+  # 0 为正常击退，1 为完全抵抗。
+  knockback-resistance: 0.75
+  # 每次冲量的水平/向上速度上限（格/tick），不额外添加击退。
+  max-horizontal: 0.16
+  max-vertical: 0.12
+  # 此期间暂停寻路速度覆盖，单位 tick（2–20）。
+  recovery-ticks: 6
+# 击杀或战斗异常结束后 25 分钟刷新。刷新时间写入 SQLite，重启不立即补刷。
+respawn-seconds: 1500
+initial-seconds: 180
+# 用户指定的紫色符文圆台中心；地板 Y=30，脚部 Y=31，不改动地形。
+arena:
+  x: -28.5
+  y: 31.0
+  z: -129.5
+  leash-radius: 16.0
+# 场地附近无玩家持续 60 秒则回位、回满血并清除本轮贡献。
+reset-seconds: 60
+# 命中时间单位 tick，20 tick = 1 秒。使用用户模型原有动画名。
+attacks:
+  melee:
+    animation: 'attack_1'
+    windup-ticks: 26
+    duration-ticks: 48
+    radius: 2.6
+    damage: 8.0
+    forward: 2.2
+  sweep:
+    animation: 'attack_2'
+    windup-ticks: 22
+    duration-ticks: 40
+    radius: 3.5
+    damage: 10.0
+    forward: 1.5
+  special:
+    animation: 'special'
+    windup-ticks: 62
+    duration-ticks: 72
+    radius: 6.0
+    damage: 14.0
+    forward: 0.0
+rewards:
+  # 实际扣血达到基础最大血量 5%，最近 60 秒有有效伤害。
+  contribution: 0.05
+  recent-seconds: 60
+  # 击杀时在线、同世界、距离死亡位置不超过 64 格。
+  range: 64.0
+  day-zone: 'Asia/Shanghai'
+  material:
+    id: 'luckblock:material_lucky_block'
+    chance: 0.25
+  generator:
+    id: 'luckblock:generator_lucky_block'
+    chance: 0.03
+    # 每天前 3 次合格击杀参与生成器抽取；奖励待领取也占用获奖额度。
+    daily-attempts: 3
+    daily-wins: 1

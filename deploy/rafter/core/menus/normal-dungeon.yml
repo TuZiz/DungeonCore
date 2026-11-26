@@ -1,0 +1,7 @@
+id: dungeon:normal
+entry: home
+pages:
+  home:
+    mode: canvas
+    skin: rafter:dungeon/normal
+

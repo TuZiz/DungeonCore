@@ -18,5 +18,5 @@ permissions:
     description: '全部普通玩家副本功能'
     default: true
   dungeon.admin:
-    description: '副本配置重载与诊断'
+    description: '副本配置重载、首领管理与诊断'
     default: op

@@ -34,7 +34,7 @@ class PermanentRespawns(private val plugin: Plugin,private val farm: FarmSetting
         if(event.respawnReason==PlayerRespawnEvent.RespawnReason.END_PORTAL) return
         val data=event.player.persistentDataContainer
         val raw=data.get(key,PersistentDataType.STRING) ?: return
-        data.remove(key) // A death record is consumed once; it must never affect future vanilla respawns.
+        // Keep ownership visible to other HIGHEST respawn handlers, regardless of registration order.
         try {
             val target=PermanentRespawnPoint.decode(raw)
             val world=Bukkit.getWorld(target.world)
@@ -46,5 +46,11 @@ class PermanentRespawns(private val plugin: Plugin,private val farm: FarmSetting
         } catch(e: IllegalArgumentException) {
             plugin.logger.log(java.util.logging.Level.WARNING,"Invalid permanent death spawn record: player=${event.player.uniqueId}",e)
         }
+    }
+
+    @EventHandler(priority=EventPriority.MONITOR)
+    fun consumed(event: PlayerRespawnEvent) {
+        if(event.respawnReason!=PlayerRespawnEvent.RespawnReason.END_PORTAL)
+            event.player.persistentDataContainer.remove(key)
     }
 }

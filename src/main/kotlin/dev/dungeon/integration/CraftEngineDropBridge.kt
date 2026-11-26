@@ -11,7 +11,7 @@ import java.lang.reflect.Proxy
 import java.util.Optional
 
 /** MM5.13 drop SPI boundary, verified with local javap. CE builds the real registered ItemStack. */
-class CraftEngineDropBridge(private val plugin: Plugin) {
+class CraftEngineDropBridge(private val plugin: Plugin,private val protection: dev.dungeon.loot.DropProtection) {
     fun register() {
         val mm=Bukkit.getPluginManager().getPlugin("MythicMobs") ?: return
         val ce=Bukkit.getPluginManager().getPlugin("CraftEngine") ?: return
@@ -40,7 +40,10 @@ class CraftEngineDropBridge(private val plugin: Plugin) {
                                 val definition=requireNotNull(byId.invoke(null,id)) { "MythicMobs dungeonce unknown CE item: $id" }
                                 definition.javaClass.getMethod("buildBukkitItem").invoke(definition) as ItemStack
                             } else ItemStack(Material.AIR)
-                            if(player) stack.amount=(args[1] as Number).toDouble().toInt().coerceIn(1,stack.maxStackSize)
+                            if(player) {
+                                stack.amount=(args[1] as Number).toDouble().toInt().coerceIn(1,stack.maxStackSize)
+                                protection.mark(stack,entityType.getMethod("getUniqueId").invoke(cause.get()) as java.util.UUID)
+                            }
                             adapt.invoke(null,stack)
                         }
                         "hashCode" -> System.identityHashCode(instance)

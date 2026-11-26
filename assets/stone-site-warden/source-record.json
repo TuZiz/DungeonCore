@@ -1,0 +1,19 @@
+{
+  "source": "C:\\Users\\32633\\Downloads\\runestone-warden-golem.bbmodel",
+  "source_sha256": "6035dd2f464a1ee2da48a499311d1bd3b9598099760d4f9bc07898f1a02b917b",
+  "geometry": 297,
+  "preserved_animations": [
+    "idle",
+    "walk",
+    "attack_1",
+    "attack_2",
+    "special",
+    "death"
+  ],
+  "added_animations": [
+    "spawn",
+    "hurt"
+  ],
+  "imported_via": "Blockbench MCP 1.10.1",
+  "original_unchanged": true
+}

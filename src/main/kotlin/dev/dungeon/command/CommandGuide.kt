@@ -6,11 +6,14 @@ import org.bukkit.entity.Player
 
 /** Presentation and syntax checks only; gameplay conditions remain with their services. */
 class CommandGuide(private val messages: Messages) {
-    private val admin = setOf("create","reload","validate","test","debug")
-    private val playerOnly = setOf("lobby","enter","exit","status","party","test","debug")
+    private val admin = setOf("create","reload","validate","test","debug","boss")
+    private val playerOnly = setOf("lobby","enter","exit","status","party","test","debug","rewards")
     fun show(sender: CommandSender, topic: String = "player") {
         if(topic == "admin" && !sender.hasPermission("dungeon.admin")) messages.send(sender,"permission")
-        else messages.sendLines(sender,"help.$topic")
+        else {
+            messages.sendLines(sender,"help.$topic")
+            if(topic=="player" || topic=="admin") messages.sendLines(sender,"help-boss-$topic")
+        }
     }
     fun intercept(sender: CommandSender, args: Array<out String>): Boolean {
         val sub = args.firstOrNull()?.lowercase()
@@ -34,6 +37,7 @@ class CommandGuide(private val messages: Messages) {
             "enter", "test" -> args.size in 2..3
             "create" -> args.size == 2
             "reload", "validate" -> args.size in 1..2
+            "boss" -> args.size==1 || (args.size==2 && args[1].lowercase() in setOf("spawn","status"))
             "party" -> when(args.getOrNull(1)?.lowercase()) {
                 "invite" -> args.size == 3
                 "accept", "leave" -> args.size == 2

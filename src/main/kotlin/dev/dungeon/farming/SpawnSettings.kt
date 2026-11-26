@@ -3,11 +3,13 @@ package dev.dungeon.farming
 import org.bukkit.configuration.file.YamlConfiguration
 import java.nio.file.Path
 
-data class FarmMob(val id: String, val name: String, val weight: Int, val elite: Boolean)
+data class FarmMob(val id: String, val name: String, val weight: Int, val elite: Boolean,
+    val model: String?=null,val headroom: Int=2)
 data class SpawnSettings(val enabled: Boolean, val interval: Int, val attempts: Int, val minRadius: Double,
     val maxRadius: Double, val vertical: Int, val separation: Double, val safeRadius: Double,
     val playerLimit: Int, val nearbyLimit: Int, val elitePlayerLimit: Int, val eliteNearbyLimit: Int, val despawnRadius: Double,
-    val despawnSeconds: Int, val mobs: List<FarmMob>, val maxAbove: Int = 2, val maxBelow: Int = 6) {
+    val despawnSeconds: Int, val mobs: List<FarmMob>, val maxAbove: Int = 2, val maxBelow: Int = 6,
+    val safeZone: SafeZoneBounds? = null) {
     companion object {
         fun load(path: Path): SpawnSettings {
             val c=YamlConfiguration().apply { load(path.toFile()) }
@@ -26,8 +28,13 @@ data class SpawnSettings(val enabled: Boolean, val interval: Int, val attempts: 
                 val name=row["name"] as? String ?: error("$path:mobs.name missing")
                 val weight=row["weight"] as? Int ?: error("$path:mobs.weight must be integer")
                 val elite=row["elite"] as? Boolean ?: error("$path:mobs.elite must be boolean")
-                require(id.matches(Regex("[A-Za-z0-9_-]+")) && name.isNotBlank() && weight in 1..1000) { "$path: invalid mob $id" }
-                FarmMob(id,name,weight,elite)
+                require(id.matches(Regex("[\\p{L}\\p{N}_-]+")) && name.isNotBlank() && weight in 1..1000) { "$path: invalid mob $id" }
+                val model=row["model"]?.let { value ->
+                    require(value is String && value.matches(Regex("[a-z0-9_]+"))) { "$path:mobs.$id.model invalid: $value" };value as String
+                }
+                val headroom=row["headroom"] ?: 2
+                require(headroom is Int && headroom in 2..8) { "$path:mobs.$id.headroom invalid: $headroom" }
+                FarmMob(id,name,weight,elite,model,headroom)
             }
             require(mobs.isNotEmpty() && mobs.size<=32 && mobs.map { it.id }.distinct().size==mobs.size) { "$path:mobs empty/duplicate/too many" }
             val min=number("radius.min",4.0,96.0);val max=number("radius.max",min,128.0)
@@ -36,7 +43,7 @@ data class SpawnSettings(val enabled: Boolean, val interval: Int, val attempts: 
                 integer("limits.per-player",1,32),integer("limits.nearby",1,128),integer("limits.elites-per-player",0,32),integer("limits.elites-nearby",0,32),number("despawn.radius",max+1,256.0),
                 integer("despawn.after-seconds",1,300),mobs,
                 if(c.contains("height.above")) integer("height.above",0,32) else 2,
-                if(c.contains("height.below")) integer("height.below",0,32) else 6)
+                if(c.contains("height.below")) integer("height.below",0,32) else 6,SafeZoneBounds.load(c,path))
         }
     }
 }

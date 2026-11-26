@@ -1,7 +1,7 @@
 # MythicMobs 5.13.0 示例资源版本：1。
 # 本文件由 MythicMobs 加载，不能添加 Dungeon 的顶层 schema-version 字段。
 # 复制到 plugins/MythicMobs/Mobs/DungeonExample.yml，再执行 /mm reload。
-DungeonExampleGuard:
+'遗迹守卫':
   Type: 'ZOMBIE'
   Display: '<#D9AA70>遗迹守卫'
   Health: 30

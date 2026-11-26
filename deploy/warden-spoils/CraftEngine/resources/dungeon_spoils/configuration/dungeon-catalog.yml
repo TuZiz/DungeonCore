@@ -1,0 +1,14 @@
+# CE 浏览器中的副本分类和外观预览，复用 Dungeon 礼包模型。
+schema-version: 1
+items:
+  dungeon:warden_spoils_preview:
+    material: 'paper'
+    model: 'dungeon:item/warden_spoils'
+    data:
+      item_name: '<gradient:#76CEBD:#E7BE72>守望者战利品</gradient> <#9399B2>· 外观预览'
+categories:
+  dungeon:rewards:
+    name: '<gradient:#76CEBD:#E7BE72>副本</gradient>'
+    icon: 'dungeon:warden_spoils_preview'
+    list:
+      - 'dungeon:warden_spoils_preview'

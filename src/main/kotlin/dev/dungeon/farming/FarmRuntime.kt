@@ -27,9 +27,17 @@ class FarmRuntime(private val plugin: Plugin,private val world: World,private va
     private val pending=ConcurrentHashMap.newKeySet<UUID>()
     private val hudFailures=ConcurrentHashMap.newKeySet<String>()
     private val hud=XerrEliteHud(world.uid)
-    private val spawning=NearbySpawns(plugin,world,settings,features.spawning,dispatch,::players)
+    private val modeled=features.elites?.let { dev.dungeon.elite.ModeledElites(plugin,it,dispatch,::players,{ viewers[it] },::safe) }
+    private val spawning=NearbySpawns(plugin,world,settings,features.spawning,dispatch,::players,modeled)
+    private val boss=features.boss?.takeIf { it.settings.enabled }?.let { resources ->
+        dev.dungeon.boss.BossModule(plugin,world,resources,dispatch,::players,{ viewers[it] }) { x,y,z ->
+            safe(x,y,z)
+        }
+    }
     @Volatile private var closed=false
     private var ticks=0L
+    private fun safe(x: Double,y: Double,z: Double)=features.spawning.safeZone?.contains(x,y,z)==true ||
+        (features.spawning.safeRadius>0 && (x-settings.x)*(x-settings.x)+(z-settings.z)*(z-settings.z)<=features.spawning.safeRadius*features.spawning.safeRadius)
     init { Bukkit.getPluginManager().registerEvents(this,plugin);tick();tickHud() }
     private fun players(): List<FarmPresence> {
         val cutoff=System.nanoTime()-3_000_000_000L
@@ -61,10 +69,10 @@ class FarmRuntime(private val plugin: Plugin,private val world: World,private va
             return
         }
         val p=player.location
-        val snapshot=FarmPresence(id,p.x,p.y,p.z,p.yaw,System.nanoTime())
+        val snapshot=FarmPresence(id,p.x,p.y,p.z,p.yaw,System.nanoTime(),player.gameMode==GameMode.SURVIVAL || player.gameMode==GameMode.ADVENTURE)
         snapshots[id]=snapshot;viewers[id]=player
         if(!features.hud.enabled || !player.hasResourcePack()) { clearHud(player);return }
-        val nearest=spawning.ledger.records.values.asSequence().filter { it.mob.elite }.mapNotNull { record ->
+        val nearest=spawning.ledger.nearby(snapshot,features.hud.range).asSequence().filter { it.mob.elite }.mapNotNull { record ->
             record.position?.takeIf { snapshot.at-it.at<3_000_000_000L }?.let { record to it }
         }.minByOrNull { (_,pos) -> snapshot.distanceSquared(pos.x,pos.y,pos.z) }
         if(nearest==null) { clearHud(player);return }
@@ -98,8 +106,12 @@ class FarmRuntime(private val plugin: Plugin,private val world: World,private va
         if(e.entity.world.uid==world.uid) spawning.died(e.entity)
     }
     @EventHandler fun loaded(e: EntitiesLoadEvent) { if(e.world.uid==world.uid) e.entities.forEach(spawning::recover) }
+    fun claimRewards(player: Player): Boolean { val module=boss ?: return false;module.claim(player);return true }
+    fun bossCommand(sender: org.bukkit.command.CommandSender,args: List<String>): Boolean { val module=boss ?: return false;module.command(sender,args);return true }
     override fun close() {
         closed=true;HandlerList.unregisterAll(this)
+        boss?.close()
+        modeled?.close()
         viewers.values.forEach { player ->
             if(Bukkit.isOwnedByCurrentRegion(player)) clearHud(player) else dispatch.entity(player) { clearHud(player) }
         }

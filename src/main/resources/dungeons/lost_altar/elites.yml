@@ -1,0 +1,42 @@
+schema-version: 1
+# BetterModel 缺失、模型未加载或配置错误时，只跳过模型精英。
+enabled: true
+mobs:
+  '荆棘妖花':
+    model: 'briarqueen_rose'
+    model-scale: 1.0
+    # 植物原地伏击；半径内玩家进入战斗。单位：格。
+    aggro-radius: 10.0
+    birth-animation: 'hiss'
+    birth-ticks: 32
+    death-animation: 'wilt'
+    death-ticks: 42
+    # 按优先顺序选择距离内且冷却结束的招式；所有时间单位均为 tick。
+    attacks:
+      mist:
+        animation: 'hiss'
+        range: 8.0
+        damage: 4.0
+        windup-ticks: 22
+        duration-ticks: 36
+        cooldown-ticks: 180
+        poison-ticks: 60
+        slow-ticks: 40
+      whip:
+        animation: 'whip_crack'
+        range: 5.5
+        damage: 10.0
+        windup-ticks: 14
+        duration-ticks: 28
+        cooldown-ticks: 100
+        poison-ticks: 0
+        slow-ticks: 0
+      bite:
+        animation: 'lunge_bite'
+        range: 3.2
+        damage: 8.0
+        windup-ticks: 12
+        duration-ticks: 24
+        cooldown-ticks: 50
+        poison-ticks: 0
+        slow-ticks: 0

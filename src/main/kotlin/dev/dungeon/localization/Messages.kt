@@ -6,17 +6,27 @@ import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.configuration.file.YamlConfiguration
-import java.nio.file.Path
-
-class Messages(path: Path, private val dispatch: Dispatch) {
-    private val texts = YamlConfiguration().apply { dev.dungeon.configuration.SchemaMigration.migrate(path);load(path.toFile()); require(getInt("schema-version") == 1) }
+class Messages(private val texts: YamlConfiguration, private val dispatch: Dispatch, private val prefix: String = "") {
+    fun section(name: String) = Messages(texts,dispatch,"$prefix$name.")
+    fun raw(key: String): String = requireNotNull(texts.getString(prefix+key)) { "lang/zh_CN.yml: missing $prefix$key" }
+    fun strings(key: String): List<String> = texts.getStringList(prefix+key)
     private val mini = MiniMessage.miniMessage()
+    fun component(key: String, values: Map<String,String> = emptyMap()): net.kyori.adventure.text.Component =
+        mini.deserialize(raw(key),
+            *values.map { (name,value) -> Placeholder.unparsed(name,value) }.toTypedArray())
+    fun componentWith(key: String, values: Map<String,net.kyori.adventure.text.Component>): net.kyori.adventure.text.Component =
+        mini.deserialize(raw(key),*values.map { (name,value) -> Placeholder.component(name,value) }.toTypedArray())
+    fun componentLines(key: String, values: Map<String,net.kyori.adventure.text.Component>): net.kyori.adventure.text.Component {
+        require(texts.isList(prefix+key)) { "lang/zh_CN.yml: expected a list at $prefix$key" }
+        return mini.deserialize(strings(key).joinToString("\n"),
+            *values.map { (name,value) -> Placeholder.component(name,value) }.toTypedArray())
+    }
     fun sendLines(sender: CommandSender, key: String) {
-        require(texts.isList(key)) { "Missing language list $key" }
-        deliver(sender,mini.deserialize(texts.getStringList(key).joinToString("\n")))
+        require(texts.isList(prefix+key)) { "lang/zh_CN.yml: expected a list at $prefix$key" }
+        deliver(sender,mini.deserialize(strings(key).joinToString("\n")))
     }
     fun send(sender: CommandSender, key: String, detail: String = "") {
-        val text = requireNotNull(texts.getString(key)) { "Missing lang key $key" }
+        val text = raw(key)
         val message = mini.deserialize(text, Placeholder.unparsed("detail",detail))
         deliver(sender,message)
     }

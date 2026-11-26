@@ -5,9 +5,10 @@ id: 'lost_altar'
 world: 'lost_altar'
 # 死亡保留背包和经验。
 keep-inventory: true
+# 入口和死亡复活共用此安全空地，采用管理员截图指定的坐标及朝向。
 spawn:
-  x: 181.771
-  y: 8.0
-  z: 11.174
-  yaw: -173.7
-  pitch: -7.2
+  x: -130.406
+  y: 7.0
+  z: 177.232
+  yaw: 127.3
+  pitch: -3.2

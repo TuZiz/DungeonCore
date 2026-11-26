@@ -1,6 +1,6 @@
 # 遗落圣坛刷怪点 v1；单位秒。修改已加载刷怪点须先停服。
 Altar_01:
-  MobName: AltarMossWalker
+  MobName: '苔痕行尸'
   World: lost_altar
   SpawnerGroup: lost_altar
   X: 0.5

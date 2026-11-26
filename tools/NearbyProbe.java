@@ -83,7 +83,7 @@ public class NearbyProbe extends JavaPlugin {
         @SuppressWarnings("unchecked") var contexts=(Map<UUID,BossbarHudContext>)f.get(null);
         contexts.put(id,new BossbarHudContext(bar,new LinkedHashMap<>()));
         try {
-            var settings=EliteHudSettings.Companion.load(folder.resolve("elite-hud.yml"),folder.getParent().getParent().resolve("lang/elite_zh_CN.yml"));
+            var settings=EliteHudSettings.Companion.load(folder.resolve("elite-hud.yml"),folder.getParent().getParent().resolve("lang/zh_CN.yml"));
             var renderer=new XerrEliteHud(world.getUID());var output=new com.google.gson.JsonArray();
             String[] directions={"正前方","右前方","右侧","右后方","身后","左后方","左侧","左前方"};
             for(int i=0;i<8;i++) {

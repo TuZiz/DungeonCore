@@ -1,0 +1,10 @@
+schema-version: 1
+# 公共首领刷新点全息字；文案位于 lang/zh_CN.yml 的 hologram 节点。
+enabled: true
+# 相对首领脚部的高度（格，0–16）；默认贴近圆台地面。
+height-offset: 0.35
+# 距离刷新点多远可见（格）；不会强制加载区块。
+range: 64.0
+scale: 0.9
+# 文本自动换行宽度，单位为客户端字体像素。
+line-width: 320

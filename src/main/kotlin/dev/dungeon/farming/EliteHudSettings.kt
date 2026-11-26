@@ -18,16 +18,17 @@ class EliteHudSettings(val enabled: Boolean,val layout: String,val range: Double
         }
     }
     companion object {
-        fun load(path: Path,language: Path=path.parent.parent.parent.resolve("lang/elite_zh_CN.yml")): EliteHudSettings {
-            val c=YamlConfiguration().apply { load(path.toFile()) }
+        fun load(path: Path,language: Path=path.parent.parent.parent.resolve("lang/zh_CN.yml")): EliteHudSettings {
             val texts=YamlConfiguration().apply { load(language.toFile()) }
+            return load(path,requireNotNull(texts.getString("elite.text")) { "$language: elite.text missing" },texts.getStringList("elite.directions"))
+        }
+        fun load(path: Path,template: String,dirs: List<String>): EliteHudSettings {
+            val c=YamlConfiguration().apply { load(path.toFile()) }
             require(c.getInt("schema-version")==1 && c.get("enabled") is Boolean) { "$path: invalid schema/enabled" }
-            require(texts.getInt("schema-version")==1) { "$language:schema-version invalid" }
             val range=c.get("range") as? Number ?: error("$path:range must be numeric")
             require(range.toDouble().isFinite() && range.toDouble() in 16.0..256.0) { "$path:range invalid" }
-            val dirs=texts.getStringList("directions")
-            require(dirs.size==8 && dirs.all { it.isNotBlank() }) { "$language:directions requires eight directions" }
-            return EliteHudSettings(c.getBoolean("enabled"),requireNotNull(c.getString("layout")),range.toDouble(),requireNotNull(texts.getString("text")),dirs)
+            require(dirs.size==8 && dirs.all { it.isNotBlank() }) { "lang/zh_CN.yml: elite.directions requires eight directions" }
+            return EliteHudSettings(c.getBoolean("enabled"),requireNotNull(c.getString("layout")),range.toDouble(),template,dirs)
         }
     }
 }

@@ -1,0 +1,21 @@
+# Dungeon 模型精英资源 v1；位置、动画与战斗由 Dungeon 管理，没有 MM 固定刷怪点。
+'荆棘妖花':
+  Type: HUSK
+  Display: '<#E78EAA>荆棘妖花'
+  Health: 240
+  Damage: 0
+  Armor: 3
+  Options:
+    NoAI: true
+    Silent: true
+    Collidable: false
+    KnockbackResistance: 1
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventItemPickup: true
+    PreventTransformation: true
+    Despawn: true
+    AlwaysShowName: false
+  Drops:
+    - 'AltarEliteDrops'

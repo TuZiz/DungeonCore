@@ -1,0 +1,23 @@
+石址守望者:
+  Type: IRON_GOLEM
+  Display: '<#79D8C4>石址守望者 <#E7BE72>[首领]'
+  Health: 1000
+  Damage: 0
+  Options:
+    NoAI: false
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    PreventRenaming: true
+    Despawn: false
+    Silent: true
+    Collidable: true
+    KnockbackResistance: 0.75
+  # MM 只创建模型；公共首领动作、技能与奖励由 Dungeon 控制。
+  Skills:
+    - 'bm:model{mid=stone_site_warden;scale=1.05;damageanimation=false;damagetint=true} @self ~onSpawn'
+  AIGoalSelectors:
+    - clear
+  AITargetSelectors:
+    - clear

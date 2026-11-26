@@ -1,0 +1,160 @@
+id: rafter:dungeon/normal
+page:
+  mode: canvas
+  title: ''
+  width: 432
+  height: 225
+  elements:
+  - id: paper
+    type: image
+    x: 0
+    y: 0
+    width: 432
+    height: 225
+    asset: rafter:dungeon/panel
+    fit: contain
+  - id: title
+    type: text
+    x: 18
+    y: 17
+    font-size: 12
+    text:
+      format: literal
+      value: '普通副本'
+      color: '#283520'
+      bold: true
+    font: fusion_pixel_quest_12_sc
+  - id: list
+    type: text
+    x: 18
+    y: 52
+    font-size: 12
+    text:
+      format: literal
+      value: '副本列表'
+      color: '#5A6747'
+    font: fusion_pixel_quest_12_sc
+  - id: list-icon
+    type: image
+    x: 19
+    y: 72
+    width: 25
+    height: 20
+    asset: rafter:dungeon/icon
+    fit: contain
+  - id: list-name
+    type: text
+    x: 51
+    y: 76
+    font-size: 12
+    text:
+      format: literal
+      value: '石址'
+      color: '#283520'
+    font: fusion_pixel_quest_12_sc
+  - id: detail-icon
+    type: image
+    x: 152
+    y: 56
+    width: 50
+    height: 39
+    asset: rafter:dungeon/icon
+    fit: contain
+  - id: name
+    type: text
+    x: 215
+    y: 57
+    font-size: 12
+    text:
+      format: literal
+      value: '石址'
+      color: '#283520'
+      bold: true
+    font: fusion_pixel_quest_12_sc
+  - id: mode
+    type: text
+    x: 215
+    y: 78
+    font-size: 12
+    text:
+      format: literal
+      value: '常驻副本'
+      color: '#5A6747'
+    font: fusion_pixel_quest_12_sc
+  - id: description
+    type: text
+    x: 152
+    y: 106
+    font-size: 12
+    text:
+      format: literal
+      value: '探索苔痕覆盖的古老遗址。'
+      color: '#283520'
+    font: fusion_pixel_quest_12_sc
+  - id: monsters
+    type: text
+    x: 152
+    y: 128
+    font-size: 12
+    text:
+      format: literal
+      value: '4 种普通怪物 · 3 种精英'
+      color: '#283520'
+    font: fusion_pixel_quest_12_sc
+  - id: death-rule
+    type: text
+    x: 152
+    y: 144
+    font-size: 12
+    text:
+      format: literal
+      value: '死亡保留物品，原副本复活'
+      color: '#283520'
+    font: fusion_pixel_quest_12_sc
+  - id: enter-label
+    type: text
+    x: 152
+    y: 173
+    font-size: 12
+    text:
+      format: literal
+      value: '进入石址'
+      color: '#283520'
+    font: fusion_pixel_quest_12_sc
+  - id: back-icon
+    type: image
+    x: 18
+    y: 185
+    width: 21
+    height: 20
+    asset: rafter:dungeon/back
+    fit: contain
+  - id: back-label
+    type: text
+    x: 47
+    y: 189
+    font-size: 12
+    text:
+      format: literal
+      value: '关闭'
+      color: '#283520'
+    font: fusion_pixel_quest_12_sc
+  - id: back
+    type: hit-area
+    x: 18
+    y: 180
+    width: 72
+    height: 27
+    actions:
+    - type: close
+  - id: enter
+    type: hit-area
+    x: 144
+    y: 171
+    width: 90
+    height: 27
+    actions:
+    - type: kether
+      script: 'command "dungeon enter lost_altar" as player'
+    - type: close
+

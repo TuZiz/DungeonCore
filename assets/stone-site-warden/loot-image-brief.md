@@ -1,0 +1,4 @@
+- 资产：warden_spoils，CraftEngine 库存物品。
+- 32×32 RGBA；石址灰绿石匣、青绿符文、暗金封扣。无文字，透明背景。
+- 参考色板：assets/stone-site-warden/image-brief.md。运行贴图接入 dungeon:warden_spoils。
+- 已目视检查 32×32 导出放大预览，石匣和符文可辨认，背景为透明 alpha。最终文件位于 deploy/warden-spoils/CraftEngine/resources/dungeon_spoils/resourcepack/assets/dungeon/textures/item/warden_spoils.png。客户端画面待验收。

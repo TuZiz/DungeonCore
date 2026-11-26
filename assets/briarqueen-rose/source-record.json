@@ -1,0 +1,16 @@
+{
+  "source": "C:\\Users\\32633\\Downloads\\briarqueen-rose.bbmodel",
+  "source_sha256": "22b67a3a6e97119b5bd4aea602b4f9b0898b5c4120cd83931911eb608adc8372",
+  "original_unchanged": true,
+  "cubes": 52,
+  "bones": 17,
+  "preserved_animations": [
+    "idle",
+    "hiss",
+    "lunge_bite",
+    "whip_crack",
+    "wilt"
+  ],
+  "added_alias": "death -> wilt",
+  "imported_via": "Blockbench MCP"
+}

@@ -11,18 +11,18 @@ import java.util.HexFormat;
 public class HudTextEvidence {
     public static void main(String[] args) throws Exception {
         Path root=Path.of(args[0]);
-        Path lang=root.resolve("src/main/resources/lang/elite_zh_CN.yml");
+        Path lang=root.resolve("src/main/resources/lang/zh_CN.yml");
         var settings=EliteHudSettings.Companion.load(root.resolve("src/main/resources/dungeons/lost_altar/elite-hud.yml"),lang);
         var yaml=YamlConfiguration.loadConfiguration(lang.toFile());
         var result=new JsonArray();
         for(int i=0;i<9;i++) {
             int direction=i==0?4:i-1;
-            String field=i==0?"text":"directions."+(i-1);
-            String text=i==0?yaml.getString("text"):yaml.getStringList("directions").get(i-1);
+            String field=i==0?"elite.text":"elite.directions."+(i-1);
+            String text=i==0?yaml.getString("elite.text"):yaml.getStringList("elite.directions").get(i-1);
             String transport=settings.values("石誓守卫",32,direction).get("elite");
             var component=LegacyComponentSerializer.builder().hexColors().useUnusualXRepeatedCharacterHexFormat().build().deserialize(transport);
             var sample=new JsonObject();
-            sample.addProperty("path","src/main/resources/lang/elite_zh_CN.yml");sample.addProperty("field",field);
+            sample.addProperty("path","src/main/resources/lang/zh_CN.yml");sample.addProperty("field",field);
             sample.addProperty("text_hash",HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(text.getBytes(java.nio.charset.StandardCharsets.UTF_8))));
             sample.add("component",JsonParser.parseString(GsonComponentSerializer.gson().serialize(component)));
             sample.addProperty("source","plugin_test");

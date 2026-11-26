@@ -2,6 +2,10 @@
 
 Kotlin + Maven 的 RPG 副本 MVP。架构与阶段计划见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。这不是所有远期功能均已完成的版本；下列支持范围与限制属于交付契约。
 
+石址公共首领使用用户提供的符文石傀儡模型，支持 BetterModel 动画、地面预警和个人独立奖励。模型兼容分析、配置、指令与实际验证范围见 [石址守望者说明](docs/stone-site-boss.md)。
+
+石址新增稀有模型精英“荆棘妖花”，使用玩家附近随机刷新、原地突咬/藤鞭/毒雾与现有精英材料掉落。配置和验证边界见 [荆棘妖花说明](docs/briarqueen-elite.md)。
+
 ## 构建与安装
 
 要求 Java 21、Maven 3.9+。执行 `mvn clean package`，安装 `target/Dungeon-0.1.0.jar`，不要安装 `original-*.jar`。Paper API 为 provided，Kotlin 与 SQLite JDBC 随包提供。SQLite 数据库线程串行执行，IO 线程池独立于所有区域线程。
@@ -23,11 +27,11 @@ MythicMobs 调用依据：https://mythiccraft.io/javadocs/mythic/io/lumine/mythi
 
 ## MythicMobs 示例安装
 
-默认 example 已使用 MM 内部 ID `DungeonExampleGuard`，普通难度生成 3 只，困难难度 6 只；击杀后仍按原流程右键祭坛通关。守卫 30 生命、3 伤害，戴铁头盔，禁止默认掉落；个人通关与首通奖励仍由 Dungeon 管理。
+默认 example 已使用 MM 内部 ID `遗迹守卫`，普通难度生成 3 只，困难难度 6 只；击杀后仍按原流程右键祭坛通关。守卫 30 生命、3 伤害，戴铁头盔，禁止默认掉落；个人通关与首通奖励仍由 Dungeon 管理。
 
 1. 安装 MythicMobs 5.13.0。Dungeon 首次安装会导出 `plugins/Dungeon/integrations/mythicmobs/DungeonExample.yml`，将它复制到 `plugins/MythicMobs/Mobs/DungeonExample.yml`。不要把此文件放入 Dungeon 的 dungeons 目录。
-2. 执行 `/mm reload`，检查 MM 控制台日志，确认加载 `DungeonExampleGuard`。外部 MM 配置没有 Dungeon 的 schema-version 字段，资源版本记录在注释里。
-3. 已安装旧版 Dungeon 的服务器不会被自动覆盖配置。需在 `plugins/Dungeon/dungeons/example/mobs.yml` 的 `mobs.guard` 下，将 `type` 改为 `'DungeonExampleGuard'`、`mythic` 改为 `true`，保留原有坐标引用和数量。运行 `/dungeon reload example`。
+2. 执行 `/mm reload`，检查 MM 控制台日志，确认加载 `遗迹守卫`。外部 MM 配置没有 Dungeon 的 schema-version 字段，资源版本记录在注释里。
+3. 已安装旧版 Dungeon 的服务器不会被自动覆盖配置。需在 `plugins/Dungeon/dungeons/example/mobs.yml` 的 `mobs.guard` 下，将 `type` 改为 `'遗迹守卫'`、`mythic` 改为 `true`，保留原有坐标引用和数量。运行 `/dungeon reload example`。
 4. 确认世界与坐标安全后执行 `/dungeon test example normal`。只加载配置并不证明实际刷怪、MM AI、死亡事件和区域线程兼容已通过。
 
 ## 常驻大厅地图
@@ -48,6 +52,7 @@ MythicMobs 调用依据：https://mythiccraft.io/javadocs/mythic/io/lumine/mythi
 | `/dungeon enter <ID> [normal/hard]` | dungeon.use | 队长带在线队员进入，检查各成员权限与人数 |
 | `/dungeon exit` | dungeon.use | 异步返回进入前的位置，成功后才解绑 |
 | `/dungeon status` | dungeon.use | 实例 ID、状态和阶段 |
+| `/dungeon rewards` | dungeon.use | 领取待领首领奖励 |
 | `/dungeon party invite <玩家>` | dungeon.use | 发出 60 秒邀请 |
 | `/dungeon party accept` | dungeon.use | 接受邀请 |
 | `/dungeon party leave` | dungeon.use | 离队；队长退出解散队伍 |
@@ -56,6 +61,8 @@ MythicMobs 调用依据：https://mythiccraft.io/javadocs/mythic/io/lumine/mythi
 | `/dungeon validate [ID]` | dungeon.admin | 解析与引用检查，不替换运行快照 |
 | `/dungeon test <ID> [难度]` | dungeon.admin | 真正以单人开始一次副本，适用正常人数规则 |
 | `/dungeon debug` | dungeon.admin | 当前实例、世界、状态与计数 |
+| `/dungeon boss status` | dungeon.admin | 查看石址公共首领状态 |
+| `/dungeon boss spawn` | dungeon.admin | 立即召唤公共首领，执行真实战斗及个人奖励 |
 
 管理指令不跳过普通玩法的安全检查。测试命令会生成怪物、发放奖励；请使用测试地图。
 

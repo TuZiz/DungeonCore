@@ -32,7 +32,7 @@ public class AltarProbe extends JavaPlugin implements Listener {
  @EventHandler(priority=EventPriority.MONITOR) public void drop(MythicDropLoadEvent e){if(e.getDropName().equalsIgnoreCase("dungeonce")) e.getDrop().ifPresent(x->drops.put(e.getConfig().getString("id"),(IItemDrop)x));}
  private boolean done=false;
  void probe(){if(done)return;World w=Bukkit.getWorld("lost_altar");if(w==null)return;done=true;try{
- if(drops.size()!=7)throw new IllegalStateException("expected 7 CE IDs, got "+drops.keySet());
+ if(drops.size()!=9)throw new IllegalStateException("expected 9 CE IDs, got "+drops.keySet());
  AbstractEntity player=(AbstractEntity)Proxy.newProxyInstance(getClassLoader(),new Class[]{AbstractEntity.class},(p,m,a)->m.getName().equals("isPlayer")?true:null);
  for(var entry:drops.entrySet()){
  DropMetadata meta=(DropMetadata)Proxy.newProxyInstance(getClassLoader(),new Class[]{DropMetadata.class},(p,m,a)->m.getName().equals("getCause")?Optional.of(player):null);
@@ -42,9 +42,9 @@ public class AltarProbe extends JavaPlugin implements Listener {
  DropMetadata environment=(DropMetadata)Proxy.newProxyInstance(getClassLoader(),new Class[]{DropMetadata.class},(p,m,a)->m.getName().equals("getCause")?Optional.empty():null);
  if(!BukkitAdapter.adapt(entry.getValue().getDrop(environment,2)).getType().isAir())throw new IllegalStateException("environment farm yielded items");
  }
- for(String id:new String[]{"AltarMossWalker","AltarTideRemnant","AltarBoneArcher","AltarVineSpider","AltarStoneGuard","AltarRuneKeeper"}){var e=MythicBukkit.inst().getAPIHelper().spawnMythicMob(id,new Location(w,0.5,49,16.5));if(e==null)throw new IllegalStateException(id);e.remove();}
+ for(String id:new String[]{"苔痕行尸","潮蚀遗民","遗坛弓卫","藤影猎蛛","石誓守卫","符文守祭者"}){var e=MythicBukkit.inst().getAPIHelper().spawnMythicMob(id,new Location(w,0.5,49,16.5));if(e==null)throw new IllegalStateException(id);e.remove();}
  if(w.getBlockAt(0,48,0).getType().isAir()||!w.getBlockAt(0,49,0).isPassable()||!w.getBlockAt(0,50,0).isPassable())throw new IllegalStateException("unsafe entrance");
- getLogger().info("ALTAR_PROBE_PASS mobs=6 CE=7 env-drop=blocked spawn=safe world="+w.getName());
+ getLogger().info("ALTAR_PROBE_PASS mobs=6 CE=9 env-drop=blocked spawn=safe world="+w.getName());
  }catch(Throwable e){e.printStackTrace();getLogger().severe("ALTAR_PROBE_FAILED "+e);}}
 }''',encoding='utf-8')
 cp=(r/'target/classpath.txt').read_text().strip()+';'+str(live/'plugins/MythicMobs-5.13.0.jar')+';'+str(live/'plugins/craft-engine-paper-plugin-26.9.2.jar')

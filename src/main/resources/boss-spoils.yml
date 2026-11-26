@@ -1,0 +1,16 @@
+schema-version: 1
+# 每包从下列石址材料中等概率抽取一种，发放一件。
+materials:
+  - 'genlite:basic_upgrade_unit'
+  - 'genlite:mechanical_parts'
+  - 'genlite:copper_coil'
+  - 'genlite:gear'
+  - 'genlite:machine_frame'
+  - 'genlite:refined_alloy'
+  - 'genlite:fuel'
+sword:
+  itemhub-id: '星芽:短剑'
+  chance: 0.15
+  # 已抽中短剑时使用；更高档内部沿用 AsterStats 相对权重。
+  common: 0.80
+  excellent: 0.17

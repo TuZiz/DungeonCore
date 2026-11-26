@@ -1,17 +1,24 @@
-# 遗落圣坛掉落 v1；每项独立概率，数量在概率前。
-# dungeonce由Dungeon桥接CraftEngine真实物品；非玩家击杀不产出。
-# 玩家击杀必掉 1-3 个铜币；精英额外 10% 概率掉 1 个银币。
-# 初级升级单元：普通7%，精英30%掉1-2个；本地图不产出机器和高阶材料。
+# 石址掉落 v1；每项独立判定，数量在概率前。
+# dungeonce 仅在击杀归属为玩家时生成 CraftEngine 物品。
+# 两套材料池都排除能量石、魔力碎片、远古核心和晶片。
 AltarCommonDrops:
   Drops:
-    - dungeonce{id=genlite:basic_upgrade_unit} 1 0.07
-    - dungeonce{id=genlite:mechanical_parts} 1 0.04
-    - dungeonce{id=genlite:copper_coil} 1 0.04
-    - 'dungeonce{id=currency:copper_coin} 1to3 1.0'
+    - 'dungeonce{id=genlite:basic_upgrade_unit} 1 0.07'
+    - 'dungeonce{id=genlite:mechanical_parts} 1 0.08'
+    - 'dungeonce{id=genlite:copper_coil} 1 0.04'
+    - 'dungeonce{id=genlite:gear} 1 0.08'
+    - 'dungeonce{id=genlite:machine_frame} 1 0.03'
+    - 'dungeonce{id=genlite:refined_alloy} 1 0.02'
+    - 'dungeonce{id=genlite:fuel} 1 0.04'
+    - 'dungeonce{id=currency:copper_coin} 1to3 0.80'
 AltarEliteDrops:
   Drops:
-    - dungeonce{id=genlite:basic_upgrade_unit} 1to2 0.30
-    - dungeonce{id=genlite:gear} 1 0.08
-    - dungeonce{id=genlite:energy_cell} 1 0.04
-    - 'dungeonce{id=currency:copper_coin} 1to3 1.0'
+    - 'dungeonce{id=genlite:basic_upgrade_unit} 1to2 0.30'
+    - 'dungeonce{id=genlite:mechanical_parts} 1 0.16'
+    - 'dungeonce{id=genlite:copper_coil} 1 0.08'
+    - 'dungeonce{id=genlite:gear} 1 0.16'
+    - 'dungeonce{id=genlite:machine_frame} 1 0.06'
+    - 'dungeonce{id=genlite:refined_alloy} 1 0.04'
+    - 'dungeonce{id=genlite:fuel} 1 0.08'
+    - 'dungeonce{id=currency:copper_coin} 1to3 0.80'
     - 'dungeonce{id=currency:silver_coin} 1 0.10'

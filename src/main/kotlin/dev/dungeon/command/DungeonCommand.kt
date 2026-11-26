@@ -24,6 +24,8 @@ class DungeonCommand(private val definitions: Definitions, private val sessions:
         try {
             when(args.firstOrNull()?.lowercase()) {
                 "lobby" -> lobby.enter(requireNotNull(sender as? Player))
+                "rewards" -> farm.claimRewards(requireNotNull(sender as? Player))
+                "boss" -> farm.bossCommand(sender,args.drop(1))
                 "list" -> messages.send(sender,"list",(definitions.current.keys + if(farm.settings.enabled) setOf(farm.settings.id) else emptySet()).joinToString(", "))
                 "enter" -> {
                     val player = requireNotNull(sender as? Player)
@@ -93,13 +95,14 @@ class DungeonCommand(private val definitions: Definitions, private val sessions:
         if(!sender.hasPermission("dungeon.use")) return emptyList()
         val admin = sender.hasPermission("dungeon.admin")
         val sub = args.firstOrNull()?.lowercase()
-        if(!admin && sub in setOf("create","reload","validate","test","debug")) return emptyList()
+        if(!admin && sub in setOf("create","reload","validate","test","debug","boss")) return emptyList()
         val candidates = when(args.size) {
-            1 -> listOf("help","list") + (if(sender is Player) listOf("lobby","enter","exit","status","party") else emptyList()) +
-                (if(admin) listOf("create","reload","validate") + if(sender is Player) listOf("test","debug") else emptyList() else emptyList())
+            1 -> listOf("help","list") + (if(sender is Player) listOf("lobby","enter","exit","status","party","rewards") else emptyList()) +
+                (if(admin) listOf("create","reload","validate","boss") + if(sender is Player) listOf("test","debug") else emptyList() else emptyList())
             2 -> when(sub) {
                 "help" -> listOf("player","party") + if(admin) listOf("admin") else emptyList()
                 "party" -> listOf("invite","accept","leave")
+                "boss" -> listOf("status","spawn")
                 "enter","test","reload","validate" -> definitions.current.keys.toList() + if(farm.settings.enabled && sub=="enter") listOf(farm.settings.id) else emptyList()
                 else -> emptyList()
             }

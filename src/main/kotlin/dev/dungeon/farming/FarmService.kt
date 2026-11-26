@@ -20,6 +20,7 @@ import java.util.logging.Level
 class FarmService(private val plugin: Plugin,val settings: FarmSettings,private val dispatch: Dispatch,
     private val provider: WorldProvider,private val messages: Messages,private val sessions: Sessions,
     private val features: FarmFeatures) : AutoCloseable {
+    private val daylight=FarmDaylight(settings)
     private var runtime: FarmRuntime?=null
     @Volatile private var world: World?=null
     @Volatile private var closed=false
@@ -42,6 +43,8 @@ class FarmService(private val plugin: Plugin,val settings: FarmSettings,private 
                         if(!closed) {
                             w.difficulty=org.bukkit.Difficulty.NORMAL
                             w.pvp=false
+                            daylight.apply(w)
+                            Bukkit.getPluginManager().registerEvents(daylight,plugin)
                             w.setSpawnLocation(settings.x.toInt(),settings.y.toInt(),settings.z.toInt())
                             world=w
                             runtime=FarmRuntime(plugin,w,settings,features,dispatch)
@@ -54,6 +57,8 @@ class FarmService(private val plugin: Plugin,val settings: FarmSettings,private 
     }
     private fun failure(e: Throwable) { plugin.logger.log(Level.SEVERE,"dungeons/${settings.id}/farming.yml world=${settings.world}: farm unavailable; map retained",e) }
     fun contains(player: Player)=settings.enabled && player.world.name==settings.world
+    fun claimRewards(player: Player) { if(runtime?.claimRewards(player)!=true) messages.send(player,"boss-unavailable") }
+    fun bossCommand(sender: org.bukkit.command.CommandSender,args: List<String>) { if(runtime?.bossCommand(sender,args)!=true) messages.send(sender,"boss-unavailable") }
     fun enter(player: Player) {
         dispatch.entity(player) {
             val w=world
@@ -70,5 +75,5 @@ class FarmService(private val plugin: Plugin,val settings: FarmSettings,private 
             } catch(e: Exception) { sessions.finishLobbyTrip(player.uniqueId,trip);failure(e);messages.send(player,"teleport-failed") }
         }
     }
-    override fun close() { closed=true;runtime?.close();runtime=null;world=null }
+    override fun close() { closed=true;org.bukkit.event.HandlerList.unregisterAll(daylight);runtime?.close();runtime=null;world=null }
 }

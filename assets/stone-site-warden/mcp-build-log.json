@@ -1,0 +1,1166 @@
+[
+  {
+    "tool": "create_offscreen_view",
+    "arguments": {
+      "id": "dungeon_preview",
+      "width": 1100,
+      "height": 1000,
+      "copy_view": "none"
+    },
+    "ok": true
+  },
+  {
+    "tool": "set_camera_angle",
+    "arguments": {
+      "view": "dungeon_preview",
+      "position": [
+        115,
+        87,
+        -150
+      ],
+      "target": [
+        0,
+        33,
+        0
+      ],
+      "projection": "orthographic",
+      "zoom": 0.19
+    },
+    "ok": true
+  },
+  {
+    "tool": "risky_eval",
+    "arguments": {
+      "code": "Preview.all.some(p=>p.id==='dungeon_preview')"
+    },
+    "ok": true
+  },
+  {
+    "tool": "create_project",
+    "arguments": {
+      "name": "stone_site_wave",
+      "format": "free"
+    },
+    "ok": true
+  },
+  {
+    "tool": "create_texture",
+    "arguments": {
+      "name": "warning",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "fill_color": "#eeaf46"
+    },
+    "ok": true
+  },
+  {
+    "tool": "risky_eval",
+    "arguments": {
+      "code": "(()=>{const t=Texture.all.find(t=>t.name===\"warning\");t.edit(canvas=>{\nconst ctx=canvas.getContext('2d'),base=[238, 175, 70],kind=\"rune\";let seed=71;\n"
+    },
+    "ok": true
+  },
+  {
+    "tool": "create_texture",
+    "arguments": {
+      "name": "pulse",
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "fill_color": "#5ee8c6"
+    },
+    "ok": true
+  },
+  {
+    "tool": "risky_eval",
+    "arguments": {
+      "code": "(()=>{const t=Texture.all.find(t=>t.name===\"pulse\");t.edit(canvas=>{\nconst ctx=canvas.getContext('2d'),base=[94, 232, 198],kind=\"rune\";let seed=71;\nco"
+    },
+    "ok": true
+  },
+  {
+    "tool": "add_group",
+    "arguments": {
+      "name": "fx_root",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "parent": "root"
+    },
+    "ok": true
+  },
+  {
+    "tool": "add_group",
+    "arguments": {
+      "name": "ring",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "parent": "fx_root"
+    },
+    "ok": true
+  },
+  {
+    "tool": "add_group",
+    "arguments": {
+      "name": "runes",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "parent": "fx_root"
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_0",
+          "from": [
+            -3.2,
+            0.3,
+            15.6
+          ],
+          "to": [
+            3.2,
+            0.65,
+            16.4
+          ],
+          "origin": [
+            0.0,
+            0.45,
+            16.0
+          ],
+          "rotation": [
+            0,
+            0.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_1",
+          "from": [
+            2.9229349178414363,
+            0.3,
+            14.382072520180587
+          ],
+          "to": [
+            9.322934917841437,
+            0.65,
+            15.182072520180588
+          ],
+          "origin": [
+            6.1229349178414365,
+            0.45,
+            14.782072520180588
+          ],
+          "rotation": [
+            0,
+            22.5,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_2",
+          "from": [
+            8.11370849898476,
+            0.3,
+            10.91370849898476
+          ],
+          "to": [
+            14.513708498984762,
+            0.65,
+            11.713708498984762
+          ],
+          "origin": [
+            11.313708498984761,
+            0.45,
+            11.313708498984761
+          ],
+          "rotation": [
+            0,
+            45.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_3",
+          "from": [
+            11.582072520180589,
+            0.3,
+            5.722934917841437
+          ],
+          "to": [
+            17.982072520180587,
+            0.65,
+            6.522934917841438
+          ],
+          "origin": [
+            14.782072520180588,
+            0.45,
+            6.122934917841437
+          ],
+          "rotation": [
+            0,
+            67.5,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_4",
+          "from": [
+            12.8,
+            0.3,
+            -0.399999999999999
+          ],
+          "to": [
+            19.2,
+            0.65,
+            0.400000000000001
+          ],
+          "origin": [
+            16.0,
+            0.45,
+            9.797174393178826e-16
+          ],
+          "rotation": [
+            0,
+            90.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_5",
+          "from": [
+            11.582072520180589,
+            0.3,
+            -6.522934917841436
+          ],
+          "to": [
+            17.982072520180587,
+            0.65,
+            -5.722934917841435
+          ],
+          "origin": [
+            14.782072520180588,
+            0.45,
+            -6.122934917841436
+          ],
+          "rotation": [
+            0,
+            112.5,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_6",
+          "from": [
+            8.11370849898476,
+            0.3,
+            -11.71370849898476
+          ],
+          "to": [
+            14.513708498984762,
+            0.65,
+            -10.913708498984759
+          ],
+          "origin": [
+            11.313708498984761,
+            0.45,
+            -11.31370849898476
+          ],
+          "rotation": [
+            0,
+            135.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_7",
+          "from": [
+            2.922934917841438,
+            0.3,
+            -15.182072520180588
+          ],
+          "to": [
+            9.322934917841438,
+            0.65,
+            -14.382072520180587
+          ],
+          "origin": [
+            6.122934917841438,
+            0.45,
+            -14.782072520180588
+          ],
+          "rotation": [
+            0,
+            157.5,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_8",
+          "from": [
+            -3.1999999999999984,
+            0.3,
+            -16.4
+          ],
+          "to": [
+            3.200000000000002,
+            0.65,
+            -15.6
+          ],
+          "origin": [
+            1.959434878635765e-15,
+            0.45,
+            -16.0
+          ],
+          "rotation": [
+            0,
+            180.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_9",
+          "from": [
+            -9.322934917841435,
+            0.3,
+            -15.18207252018059
+          ],
+          "to": [
+            -2.9229349178414346,
+            0.65,
+            -14.38207252018059
+          ],
+          "origin": [
+            -6.122934917841435,
+            0.45,
+            -14.78207252018059
+          ],
+          "rotation": [
+            0,
+            202.5,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_10",
+          "from": [
+            -14.513708498984759,
+            0.3,
+            -11.713708498984763
+          ],
+          "to": [
+            -8.11370849898476,
+            0.65,
+            -10.913708498984763
+          ],
+          "origin": [
+            -11.31370849898476,
+            0.45,
+            -11.313708498984763
+          ],
+          "rotation": [
+            0,
+            225.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_11",
+          "from": [
+            -17.982072520180584,
+            0.3,
+            -6.522934917841446
+          ],
+          "to": [
+            -11.582072520180585,
+            0.65,
+            -5.722934917841445
+          ],
+          "origin": [
+            -14.782072520180584,
+            0.45,
+            -6.122934917841445
+          ],
+          "rotation": [
+            0,
+            247.49999999999997,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_12",
+          "from": [
+            -19.2,
+            0.3,
+            -0.40000000000000296
+          ],
+          "to": [
+            -12.8,
+            0.65,
+            0.3999999999999971
+          ],
+          "origin": [
+            -16.0,
+            0.45,
+            -2.9391523179536475e-15
+          ],
+          "rotation": [
+            0,
+            270.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_13",
+          "from": [
+            -17.982072520180587,
+            0.3,
+            5.72293491784144
+          ],
+          "to": [
+            -11.582072520180585,
+            0.65,
+            6.52293491784144
+          ],
+          "origin": [
+            -14.782072520180586,
+            0.45,
+            6.12293491784144
+          ],
+          "rotation": [
+            0,
+            292.5,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_14",
+          "from": [
+            -14.513708498984762,
+            0.3,
+            10.913708498984757
+          ],
+          "to": [
+            -8.113708498984764,
+            0.65,
+            11.713708498984758
+          ],
+          "origin": [
+            -11.313708498984763,
+            0.45,
+            11.313708498984758
+          ],
+          "rotation": [
+            0,
+            315.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "ring",
+      "texture": "warning",
+      "faces": true,
+      "elements": [
+        {
+          "name": "arc_15",
+          "from": [
+            -9.322934917841447,
+            0.3,
+            14.382072520180584
+          ],
+          "to": [
+            -2.922934917841446,
+            0.65,
+            15.182072520180585
+          ],
+          "origin": [
+            -6.122934917841446,
+            0.45,
+            14.782072520180584
+          ],
+          "rotation": [
+            0,
+            337.5,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "runes",
+      "texture": "pulse",
+      "faces": true,
+      "elements": [
+        {
+          "name": "rune_0",
+          "from": [
+            -0.5,
+            0.5,
+            11.3
+          ],
+          "to": [
+            0.5,
+            0.85,
+            14.7
+          ],
+          "origin": [
+            0.0,
+            0.6,
+            13.0
+          ],
+          "rotation": [
+            0,
+            35.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "runes",
+      "texture": "pulse",
+      "faces": true,
+      "elements": [
+        {
+          "name": "rune_1",
+          "from": [
+            8.69238815542512,
+            0.5,
+            7.492388155425119
+          ],
+          "to": [
+            9.69238815542512,
+            0.85,
+            10.892388155425119
+          ],
+          "origin": [
+            9.19238815542512,
+            0.6,
+            9.19238815542512
+          ],
+          "rotation": [
+            0,
+            80.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "runes",
+      "texture": "pulse",
+      "faces": true,
+      "elements": [
+        {
+          "name": "rune_2",
+          "from": [
+            12.5,
+            0.5,
+            -1.699999999999999
+          ],
+          "to": [
+            13.5,
+            0.85,
+            1.7000000000000008
+          ],
+          "origin": [
+            13.0,
+            0.6,
+            7.960204194457795e-16
+          ],
+          "rotation": [
+            0,
+            125.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "runes",
+      "texture": "pulse",
+      "faces": true,
+      "elements": [
+        {
+          "name": "rune_3",
+          "from": [
+            8.69238815542512,
+            0.5,
+            -10.892388155425117
+          ],
+          "to": [
+            9.69238815542512,
+            0.85,
+            -7.492388155425117
+          ],
+          "origin": [
+            9.19238815542512,
+            0.6,
+            -9.192388155425117
+          ],
+          "rotation": [
+            0,
+            170.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "runes",
+      "texture": "pulse",
+      "faces": true,
+      "elements": [
+        {
+          "name": "rune_4",
+          "from": [
+            -0.4999999999999984,
+            0.5,
+            -14.7
+          ],
+          "to": [
+            0.5000000000000016,
+            0.85,
+            -11.3
+          ],
+          "origin": [
+            1.592040838891559e-15,
+            0.6,
+            -13.0
+          ],
+          "rotation": [
+            0,
+            215.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "runes",
+      "texture": "pulse",
+      "faces": true,
+      "elements": [
+        {
+          "name": "rune_5",
+          "from": [
+            -9.692388155425117,
+            0.5,
+            -10.892388155425119
+          ],
+          "to": [
+            -8.692388155425117,
+            0.85,
+            -7.492388155425119
+          ],
+          "origin": [
+            -9.192388155425117,
+            0.6,
+            -9.19238815542512
+          ],
+          "rotation": [
+            0,
+            260.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "runes",
+      "texture": "pulse",
+      "faces": true,
+      "elements": [
+        {
+          "name": "rune_6",
+          "from": [
+            -13.5,
+            0.5,
+            -1.7000000000000024
+          ],
+          "to": [
+            -12.5,
+            0.85,
+            1.6999999999999975
+          ],
+          "origin": [
+            -13.0,
+            0.6,
+            -2.3880612583373385e-15
+          ],
+          "rotation": [
+            0,
+            305.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "place_cube",
+    "arguments": {
+      "group": "runes",
+      "texture": "pulse",
+      "faces": true,
+      "elements": [
+        {
+          "name": "rune_7",
+          "from": [
+            -9.69238815542512,
+            0.5,
+            7.4923881554251155
+          ],
+          "to": [
+            -8.69238815542512,
+            0.85,
+            10.892388155425115
+          ],
+          "origin": [
+            -9.19238815542512,
+            0.6,
+            9.192388155425116
+          ],
+          "rotation": [
+            0,
+            350.0,
+            0
+          ],
+          "shade": false
+        }
+      ]
+    },
+    "ok": true
+  },
+  {
+    "tool": "create_animation",
+    "arguments": {
+      "name": "telegraph",
+      "animation_length": 1.4,
+      "bones": {
+        "ring": [
+          {
+            "time": 0,
+            "scale": 0.98
+          },
+          {
+            "time": 0.7,
+            "scale": 1.03
+          },
+          {
+            "time": 1.4,
+            "scale": 0.98
+          }
+        ],
+        "runes": [
+          {
+            "time": 0,
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": 0.85
+          },
+          {
+            "time": 0.7,
+            "rotation": [
+              0,
+              22.5,
+              0
+            ],
+            "scale": 1
+          },
+          {
+            "time": 1.4,
+            "rotation": [
+              0,
+              45,
+              0
+            ],
+            "scale": 0.85
+          }
+        ]
+      },
+      "loop": true
+    },
+    "ok": true
+  },
+  {
+    "tool": "create_animation",
+    "arguments": {
+      "name": "burst",
+      "animation_length": 0.65,
+      "bones": {
+        "ring": [
+          {
+            "time": 0,
+            "scale": [
+              1,
+              4,
+              1
+            ]
+          },
+          {
+            "time": 0.55,
+            "scale": [
+              1,
+              0.5,
+              1
+            ]
+          },
+          {
+            "time": 0.65,
+            "scale": [
+              1,
+              0.01,
+              1
+            ]
+          }
+        ],
+        "runes": [
+          {
+            "time": 0,
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "position": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "time": 0.5,
+            "rotation": [
+              0,
+              65,
+              0
+            ],
+            "position": [
+              0,
+              8,
+              0
+            ]
+          },
+          {
+            "time": 0.65,
+            "rotation": [
+              0,
+              80,
+              0
+            ],
+            "position": [
+              0,
+              10,
+              0
+            ],
+            "scale": 0.01
+          }
+        ],
+        "fx_root": [
+          {
+            "time": 0,
+            "scale": 0.12
+          },
+          {
+            "time": 0.25,
+            "scale": 0.7
+          },
+          {
+            "time": 0.55,
+            "scale": 1
+          },
+          {
+            "time": 0.65,
+            "scale": 1.05
+          }
+        ]
+      },
+      "loop": false
+    },
+    "ok": true
+  },
+  {
+    "tool": "risky_eval",
+    "arguments": {
+      "code": "(()=>{Undo.initEdit({animations:Animation.all});Animation.all.forEach(a=>a.name=a.name.replace(/^animation\\./,''));Undo.finishEdit('Name BetterModel a"
+    },
+    "ok": true
+  },
+  {
+    "tool": "export_model",
+    "arguments": {
+      "codec_id": "project",
+      "result_format": "text",
+      "max_content_length": 2000000
+    },
+    "ok": true
+  },
+  {
+    "tool": "create_offscreen_view",
+    "arguments": {
+      "id": "dungeon_preview",
+      "width": 1100,
+      "height": 1000,
+      "copy_view": "none"
+    },
+    "ok": true
+  },
+  {
+    "tool": "set_camera_angle",
+    "arguments": {
+      "view": "dungeon_preview",
+      "position": [
+        75,
+        100,
+        -90
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "projection": "orthographic",
+      "zoom": 0.48
+    },
+    "ok": true
+  },
+  {
+    "tool": "risky_eval",
+    "arguments": {
+      "code": "Preview.all.some(p=>p.id==='dungeon_preview')"
+    },
+    "ok": true
+  }
+]

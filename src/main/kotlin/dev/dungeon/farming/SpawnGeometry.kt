@@ -3,7 +3,7 @@ package dev.dungeon.farming
 import java.util.UUID
 import kotlin.math.*
 
-data class FarmPresence(val id: UUID, val x: Double, val y: Double, val z: Double, val yaw: Float, val at: Long) {
+data class FarmPresence(val id: UUID, val x: Double, val y: Double, val z: Double, val yaw: Float, val at: Long,val combat: Boolean=true) {
     fun distanceSquared(x: Double,y: Double,z: Double)=(this.x-x).pow(2)+(this.y-y).pow(2)+(this.z-z).pow(2)
 }
 object SpawnGeometry {
